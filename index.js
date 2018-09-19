@@ -30,7 +30,7 @@ function render($parent, newNode, oldNode, index = 0) {
     const newLength = newNode.children.length;
     const oldLength = oldNode.children.length;
     for (let i = 0; i < newLength || i < oldLength; i++) {
-      updateElement(
+      render(
         $parent.childNodes[index],
         newNode.children[i],
         oldNode.children[i],
