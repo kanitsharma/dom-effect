@@ -1,4 +1,5 @@
-function h(type, props, children) {
+function h(type, propList, children) {
+  const props = propList.reduce((acc, x) => ({ ...acc, ...x }), {});
   return { type, props, children };
 }
 
@@ -9,6 +10,12 @@ function createElement(node) {
   const $el = document.createElement(node.type);
   node.children.map(createElement).forEach($el.appendChild.bind($el));
   return $el;
+}
+
+function className(name) {
+  return {
+    class: name
+  };
 }
 
 function changed(node1, node2) {

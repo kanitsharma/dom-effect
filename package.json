@@ -1,0 +1,9 @@
+{
+  "name": "dom-effect",
+  "version": "1.0.0",
+  "description": "vdom implementation",
+  "main": "index.js",
+  "repository": "https://github.com/kanitsharma/dom-effect.git",
+  "author": "kanitsharma <kanitshrm09@gmail.com>",
+  "license": "MIT"
+}
