@@ -1,6 +1,6 @@
 # dom-effect :rocket:
 
-- vdom implmentation in just 1.1 kb of javascript
+- vdom implmentation in just 2 kb of javascript
 
 ## Example
 
