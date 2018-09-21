@@ -7,7 +7,7 @@
 - With Elm Like Syntax ( Using functions )
 
 ```javascript
-import render, { f } from "dom-effect";
+import { render, f } from "dom-effect";
 import { className, onClick } from "dom-effect";
 
 const first = f(
@@ -34,7 +34,7 @@ setTimeout(_ => {
 - Using jsx
 
 ```javascript
-import render, { h } from "dom-effect";
+import { render, h } from "dom-effect";
 
 const first = (
   <div className="main-heading" onClick={_ => console.log("Hi")}>
