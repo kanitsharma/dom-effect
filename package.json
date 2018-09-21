@@ -1,6 +1,6 @@
 {
   "name": "dom-effect",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "vdom implementation",
   "main": "dist/main.js",
   "repository": "https://github.com/kanitsharma/dom-effect.git",
