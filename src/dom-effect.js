@@ -109,7 +109,7 @@ const changed = (node1, node2) =>
   node1.type !== node2.type ||
   (node1.props && node1.props.forceUpdate);
 
-export default function render($parent, newNode, oldNode, index = 0) {
+export function render($parent, newNode, oldNode, index = 0) {
   if (!oldNode) {
     $parent.appendChild(createElement(newNode));
   } else if (!newNode) {
