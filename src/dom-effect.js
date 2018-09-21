@@ -1,7 +1,13 @@
 // VDom node
 const reduceProps = props => props.reduce((acc, x) => ({ ...acc, ...x }), {});
 
-export const h = (type, propList, children) => ({
+export const h = (type, props, ...children) => ({
+  type,
+  props: props || {},
+  children
+});
+
+export const f = (type, propList, children) => ({
   type,
   props: reduceProps(propList),
   children
