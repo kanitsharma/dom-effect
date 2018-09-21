@@ -84,7 +84,7 @@ function addEventListeners($target, props) {
 
 // Create Element
 
-const createElement = ({ type, props, children }) => {
+const createElement = node => {
   if (typeof node === "string") {
     return document.createTextNode(node);
   }
