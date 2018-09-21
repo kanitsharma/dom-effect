@@ -1,27 +1,11 @@
 // VDom node
-function h(type, propList, children) {
-  const props = propList.reduce((acc, x) => ({ ...acc, ...x }), {});
-  return { type, props, children };
-}
+const reduceProps = props => props.reduce((acc, x) => ({ ...acc, ...x }), {});
 
-// Attributes
-function className(name) {
-  return {
-    class: name
-  };
-}
-
-function id(name) {
-  return {
-    id: name
-  };
-}
-
-function onClick(fn) {
-  return {
-    onClick: fn
-  };
-}
+export const h = (type, propList, children) => ({
+  type,
+  props: reduceProps(propList),
+  children
+});
 
 // Props
 
@@ -39,17 +23,11 @@ function removeBooleanProp($target, name) {
   $target[name] = false;
 }
 
-function isEventProp(name) {
-  return /^on/.test(name);
-}
+const isEventProp = name => /^on/.test(name);
 
-function extractEventName(name) {
-  return name.slice(2).toLowerCase();
-}
+const extractEventName = name => name.slice(2).toLowerCase();
 
-function isCustomProp(name) {
-  return isEventProp(name) || name === "forceUpdate";
-}
+const isCustomProp = name => isEventProp(name) || name === "forceUpdate";
 
 function setProp($target, name, value) {
   if (isCustomProp(name)) {
@@ -106,7 +84,7 @@ function addEventListeners($target, props) {
 
 // Create Element
 
-function createElement(node) {
+const createElement = ({ type, props, children }) => {
   if (typeof node === "string") {
     return document.createTextNode(node);
   }
@@ -115,20 +93,17 @@ function createElement(node) {
   addEventListeners($el, node.props);
   node.children.map(createElement).forEach($el.appendChild.bind($el));
   return $el;
-}
+};
 
 // Render, Diff and Patching
 
-function changed(node1, node2) {
-  return (
-    typeof node1 !== typeof node2 ||
-    (typeof node1 === "string" && node1 !== node2) ||
-    node1.type !== node2.type ||
-    (node1.props && node1.props.forceUpdate)
-  );
-}
+const changed = (node1, node2) =>
+  typeof node1 !== typeof node2 ||
+  (typeof node1 === "string" && node1 !== node2) ||
+  node1.type !== node2.type ||
+  (node1.props && node1.props.forceUpdate);
 
-function render($parent, newNode, oldNode, index = 0) {
+export default function render($parent, newNode, oldNode, index = 0) {
   if (!oldNode) {
     $parent.appendChild(createElement(newNode));
   } else if (!newNode) {
