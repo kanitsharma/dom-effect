@@ -2,13 +2,21 @@
   "name": "dom-effect",
   "version": "1.0.0",
   "description": "vdom implementation",
-  "main": "index.js",
+  "main": "dist/main.js",
   "repository": "https://github.com/kanitsharma/dom-effect.git",
   "author": "kanitsharma <kanitshrm09@gmail.com>",
   "license": "MIT",
   "scripts": {
     "build": "node build.js"
   },
+  "files": [
+    "dist"
+  ],
+  "keywords": [
+    "functional programming",
+    "effects",
+    "vdom"
+  ],
   "devDependencies": {
     "@lectro/core": "^1.1.2-alpha-19",
     "@lectro/enhancer-buildutils": "^0.1.0-alpha-7"
